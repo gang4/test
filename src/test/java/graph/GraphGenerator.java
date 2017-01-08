@@ -16,7 +16,7 @@ public class GraphGenerator {
 	public int autoGenUnnsigned(Random r) {
 		int len = 0;
 		while (len < 2) {
-			len = Math.abs(r.nextInt(32));
+			len = Math.abs(r.nextInt(64));
 		}
 		return len;
 	}

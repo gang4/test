@@ -7,7 +7,7 @@ package dynamic.programming;
  */
 public class WIS {
 	final Integer [] weight;
-	private Integer [] a = null;
+	private Integer [] cache = null;
 	
 	public WIS(Integer [] weight) {
 		this.weight = weight;
@@ -17,35 +17,81 @@ public class WIS {
 	 * @return
 	 */
 	public int valueOfSet() {
-		this.a = new Integer[this.weight.length];
-		a[0] = this.weight[0];
-		a[1] = this.weight[1];
+		this.cache = new Integer[this.weight.length];
+		cache[0] = this.weight[0];
+		cache[1] = this.weight[1];
 		for (int i = 2; i < weight.length; i++) {
-			a[i] = this.weight[i] + a[i -2];
-			if (a[i] < a[i - 1]) {
-				a[i] = a[i - 1];
+			cache[i] = this.weight[i] + cache[i -2];
+			if (cache[i] < cache[i - 1]) {
+				cache[i] = cache[i - 1];
 			}
 		}
 		System.out.println("Cahced:");
-		WIS.dump(a);
-		return a[this.weight.length - 1];
+		WIS.dump(cache);
+		return cache[this.weight.length - 1];
 	}
 	
+	/**
+	 * -------- Has bug ------------------------
+	 * @return
+	 */
 	public Integer [] verextInSet() {
-		if (a == null) {
+		if (cache == null) {
 			valueOfSet();
 		}
-		for (int i = this.weight.length - 1; 0 < i; i --) {
-			if (a[i] > (a[i -1])) {
-				this.a[i] = this.weight[i];
-				this.a[i -1] = -1;
+		int i = this.weight.length - 1;
+		for (; 2 < i; i -= 2) {
+			if (cache[i].intValue() > cache[i - 1].intValue()) {
+				this.cache[i] = i;
+				this.cache[i -1] = -1;
+			}
+			else if (cache[i].intValue() == cache[i - 1].intValue()) {
+				this.cache[i] = -1;
+				i ++;
 			}
 			else {
-				this.a[i] = -1;
-				this.a[i - 1] = this.weight[i - 1];
+				this.cache[i - 1] = i - 1;
+				this.cache[i] = -1;
+				this.cache[i - 2] = -1;
+				i --;
 			}
 		}
-		return a;
+		
+		if (i == 1) {
+			if (cache[2].intValue() > 1) {
+				cache[0] = 0;
+				cache[1] = -1;
+			}
+			else {
+				cache[0] = -1;
+				cache[1] = 1;
+			}
+		}
+		else {
+			if (cache[3].intValue() > 0) {
+				setLast1();
+			}
+			else {
+				if (cache[1].intValue() > cache[0].intValue() + cache[0].intValue()) {
+					setLast1();
+				}
+				else {
+					setLast2();
+				}
+			}
+		}
+		return cache;
+	}
+	
+	private void setLast2() {
+		cache[0] = 0;
+		cache[1] = -1;
+		cache[2] = 2;
+	}
+	private void setLast1() {
+		cache[0] = -1;
+		cache[1] = 1;
+		cache[2] = -1;
 	}
 	
 	static public void dump(Integer [] data) {
