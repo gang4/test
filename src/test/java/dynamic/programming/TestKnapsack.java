@@ -1,6 +1,5 @@
 package dynamic.programming;
 
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -18,7 +17,7 @@ public class TestKnapsack {
 	public void testNaiveBuild(Integer [] v, Integer [] w, int capacity) {
 		Knapsack k = new Knapsack(v, w, capacity);
 		int [][] table = k.buildNaive();
-		dump(table);
+		Util.dump(table);
 	}
 	
 	@Test
@@ -39,8 +38,8 @@ public class TestKnapsack {
 		Knapsack k = new Knapsack(v, w, capacity);
 		int [][] table = k.buildNaive();
 		System.out.println("Table");
-		dump(table);
-		List<Integer> list = k.getOptimalSolution(table);
+		Util.dump(table);
+		List<Integer> list = k.traceBack(table);
 		System.out.println("List of Value item index");
 		list.stream().forEach(i -> System.out.print(" " + i));
 		System.out.println();
@@ -86,7 +85,7 @@ public class TestKnapsack {
 			len = Math.abs(r.nextInt(total));
 		}
 		System.out.println("Input: " + len);
-		dumpInput(v, w);
+		Util.dumpInput(v, w);
 		
 		testgetOptimalSolution(v, w, len);
 	}
@@ -97,21 +96,5 @@ public class TestKnapsack {
 			a[i] = new Integer(Math.abs(r.nextInt(len)));
 		}
 		return a;
-	}
-
-	private void dumpInput(Integer [] v, Integer [] w) {
-		Arrays.asList(v).stream().forEach(i -> System.out.print(" 	" + i));
-		System.out.println();
-		Arrays.asList(w).stream().forEach(i -> System.out.print(" 	" + i));
-		System.out.println();	
-	}
-	
-	private void dump(int [][] table) {
-		for (int i = table[0].length - 1; 0 <= i; i --) {
-			for (int j = 0; j < table.length; j ++) {
-				System.out.print(" " + table[j][i]);
-			}
-			System.out.println();
-		}
 	}
 }

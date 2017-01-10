@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * For i = 1 to n  
- * 		for j = 0 to max{wi}
- * 			a[i, x] = max{a[i -1, j], a[i - 1, j - wi] + vi}
+ * 		for j = 0 to max{w}
+ * 			a[i, x] = max{a[i -1, j], a[i - 1, j - w(i)] + vi}
  * @author yyu
  *
  */
@@ -48,15 +48,15 @@ public class Knapsack {
 		return table;
 	}
 	
-	public List<Integer> getOptimalSolution(int [][] table) {
+	public List<Integer> traceBack(int [][] table) {
 		List<Integer> list = new ArrayList<>();
 		
 		for (int j = table[0].length - 1; 0 <= j; j --) {
 			for (int i = table.length - 1; 0 <= i; i --) {
 				if (i == 0 || table[i][j] == table[i - 1][j]) {
 					int k = i;
-					for (; 0 <= k; k --) {
-						if (k == 0 || table[k][j] != table[k - 1][j]) {
+					for (; 0 < k; k --) {
+						if (table[k][j] != table[k - 1][j]) {
 							break;
 						}
 					}
