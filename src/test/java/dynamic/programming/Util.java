@@ -18,4 +18,13 @@ public class Util {
 			System.out.println();
 		}
 	}
+	
+	static void dump(double [][] table) {
+		for (int i = 0; i < table[0].length; i ++) {
+			for (int j = 0; j < table.length; j ++) {
+				System.out.printf(" %.2f", table[j][i]);
+			}
+			System.out.println();
+		}
+	}
 }
