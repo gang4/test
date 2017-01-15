@@ -6,6 +6,9 @@ import org.junit.Test;
 import dynamic.programming.BellmanFordShortestPath.Edge;
 import dynamic.programming.BellmanFordShortestPath.Vertex;
 
+/*
+ * http://algs4.cs.princeton.edu/lectures/44DemoBellmanFord.pdf
+ */
 public class TestBellmanFordShortestPath {
 	@Test
 	public void test() {
@@ -43,6 +46,10 @@ public class TestBellmanFordShortestPath {
 		for (int i = 0; i < result.length; i ++) {
 			Assert.assertTrue(result[i] == shortest.getWeight()[i]);
 		}
-		Assert.assertTrue(!shortest.hasNegtiveCycle());
+		shortest.buildPass();
+		int [] result1 = {0,5,14,17,9,13,25,8};
+		for (int i = 0; i < result.length; i ++) {
+			Assert.assertTrue(result1[i] == shortest.getWeight()[i]);
+		}
 	}
 }
