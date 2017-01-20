@@ -1,4 +1,4 @@
-package dynamic.programming;
+package dynamic.programming.practice;
 
 public class MaxSqureMatrix {
 	/**
@@ -21,7 +21,7 @@ public class MaxSqureMatrix {
 	 *  0 1 4 4 4 1
 	 *  0 0 1 4 9 4
 	 */
-	final int [][] matrix;
+	int [][] matrix;
 	int [][] table = null;
 	int max = 0;
 	public MaxSqureMatrix(int [][] matrix) {

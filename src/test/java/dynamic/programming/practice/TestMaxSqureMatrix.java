@@ -1,10 +1,12 @@
-package dynamic.programming;
+package dynamic.programming.practice;
 
 import java.util.Date;
 import java.util.Random;
 
 import org.junit.Test;
 
+import dynamic.programming.Util;
+import dynamic.programming.practice.MaxSqureMatrix;
 import graph.GraphGenerator;
 
 public class TestMaxSqureMatrix {
@@ -21,8 +23,10 @@ public class TestMaxSqureMatrix {
 		}
 		System.out.println("Input matrix");
 		Util.dump(matrix);
-		int[][] table = new MaxSqureMatrix(matrix).buildTable();
+		MaxSqureMatrix m = new MaxSqureMatrix(matrix);
+		int[][] table = m.buildTable();
 		System.out.println("Output matrix");
 		Util.dump(table);
+		System.out.println("Max Matrix: " + m.max);
 	}
 }

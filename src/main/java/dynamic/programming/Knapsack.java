@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * For i = 1 to n  
  * 		for j = 0 to max{w}
- * 			a[i, x] = max{a[i -1, j], a[i - 1, j - w(i)] + vi}
+ * 			a[i, j] = max{a[i -1, j], a[i - 1, j - w(i)] + vi}
  * @author yyu
  *
  */

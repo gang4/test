@@ -14,9 +14,13 @@ import graph.greedy.Union.Node;
 
 public class GraphGenerator {
 	public int autoGenUnnsigned(Random r) {
+		return autoGenUnnsigned(r, 64);
+	}
+	
+	public int autoGenUnnsigned(Random r, int limit) {
 		int len = 0;
 		while (len < 2) {
-			len = Math.abs(r.nextInt(64));
+			len = Math.abs(r.nextInt(limit));
 		}
 		return len;
 	}
