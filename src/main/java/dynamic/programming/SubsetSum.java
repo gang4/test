@@ -17,10 +17,10 @@ package dynamic.programming;
  * STEP 3: Order of subtasks
  *  Row by row, increasing column
  */
-public class SubSetSum {
+public class SubsetSum {
 	final int [] set;
 	int value;
-	public SubSetSum(int [] set, int value) {
+	public SubsetSum(int [] set, int value) {
 		this.set = set;
 		this.value = value;
 	}

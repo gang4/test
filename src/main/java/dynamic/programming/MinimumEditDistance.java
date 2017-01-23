@@ -48,10 +48,11 @@ public class MinimumEditDistance {
 	 * 
 	 * We assume before D(i,j), all sub problem has been resolved
 	 * That is D(i -1, j), D(i, j - 1) and D(i - 1, j - 1).
-	 * For D(i, j), we have (A) delete or insert cases can apply
-	 * to either D(i -1, j) or D(i, j - 1) or (B) we can do nothing
-	 * (cost 0) for D(i - 1, j - 1) if S(i) == S(j), or apply substitute
-	 * to either S(i) or S(j) because they are not the same and cost 2.
+	 * For D(i, j), we have (A) delete or insert can apply
+	 * to either D(i -1, j) or D(i, j - 1) with cost 1 or (B) we can do 
+	 * nothing (cost 0) for D(i - 1, j - 1) if S(i) == S(j), or apply 
+	 * substitute to either S(i) or S(j) because they are not the 
+	 * same and cost 2.
 	 *  
 	 * @return
 	 */

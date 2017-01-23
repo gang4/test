@@ -35,7 +35,7 @@ public class Util {
 		for (int i = 0; i < table[0].length; i ++) {
 			System.out.print(set[i]);
 			for (int j = 0; j < table.length; j ++) {
-				System.out.print("	" + table[j][i]);
+				System.out.print("	" + (table[j][i]? "T" : "F"));
 			}
 			System.out.println();
 		}
