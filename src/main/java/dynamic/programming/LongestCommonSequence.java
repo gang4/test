@@ -14,14 +14,14 @@ public class LongestCommonSequence {
 	}
 
 	/**
-	 * Case 1: what if S[i] 6= T[j]? Then, the desired subsequence has to ignore one of 
+	 * Case 1: what if S[i] != T[j], Then, the desired subsequence has to ignore one of 
 	 * S[i] or T[j] so we have:
 	 * 		LCS[i, j] = max(LCS[i − 1, j], LCS[i, j − 1]).
-	 * Case 2: what if S[i] = T[j]? Then the LCS of S[1..i] and T[1..j] might as well 
+	 * Case 2: what if S[i] = T[j], Then the LCS of S[1..i] and T[1..j] might as well 
 	 * match them up. For instance, if I gave you a common subsequence that matched 
 	 * S[i] to an earlier location in T, for instance, you could always match it to 
 	 * T[j] instead. So, in this case we have:
-	 *  	CS[i, j] = 1 + LCS[i − 1, j − 1].
+	 *  	LCS[i, j] = 1 + LCS[i − 1, j − 1].
 	 * @return
 	 */
 	public int[][] buildTable() {

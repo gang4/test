@@ -11,6 +11,9 @@ import graph.Vertex;
  * that element.
  * 
  * Please see graph.bfs.MinimunJumpToArrayEnd also.
+ * 
+ * http://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
+ * http://algorithmsandme.in/2014/03/minimum-number-of-jumps-to-reach-end/
  */
 public class MinimunJumpToArrayEnd {
 	final int [] array;
@@ -48,6 +51,7 @@ public class MinimunJumpToArrayEnd {
 	/**
 	 * By input as {1,3,5,8,9,2,6,7,6,8,9}
 	 * We can build the table as following:
+	 * 
 	 * F -- not reachable, initialized as Integer.MAX_VALUE
 	 * # -- The minimum jumps
 	 * 

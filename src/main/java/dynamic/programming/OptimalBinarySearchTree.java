@@ -76,12 +76,15 @@ public class OptimalBinarySearchTree {
 	}
 	
 	/**
+	 * 	For any range given, we loop every node a root once
+	 * then we value of each, such as a(i), ..., a(j) and save
+	 * them into table.
+	 * 
 	 * a(k) = sum(p(i) ... p(j)) + min{a(i, k-1) + a(k+1,j)}
 	 * i <= j
 	 * 
-	 * We can get the tree in here also.
-	 * allocate list. Save each optimal root in sequence.
-	 * point the children to its root and root to children
+	 * In above, either a(i, k-1) or a(k+1,j), should has been computed
+	 * and saved in table already.
 	 */
 	private double getOptimalValue(int i, int j, double[][] table) throws Exception {
 		if (i == j) {

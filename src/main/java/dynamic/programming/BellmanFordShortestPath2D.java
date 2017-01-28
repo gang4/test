@@ -47,10 +47,10 @@ public class BellmanFordShortestPath2D {
 	 * 
 	 * For each k, we can think it as number of hops from any
 	 * vertex to any other vertex if there is a path.
-	 * (1) 	We have to cache every for optimal value of dij, from vertex i to 
+	 * (1) 	We have to cache every optimal value of dij, from vertex i to 
 	 *  	vertex j that use k hops.
 	 * (2) 	We need to know the all edge for next hop from exiting all
-	 * 		ended edges.
+	 * 		ended vertices.
 	 *  
 	 * @param k -- the number of edge from vertex i to vertex can use.
 	 */

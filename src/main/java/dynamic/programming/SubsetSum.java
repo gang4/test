@@ -47,8 +47,8 @@ public class SubsetSum {
 		// set[x] > value, it cannot be added to subset, then for value i
 		// if sum of subset without set[x] is i, then the cells table[i][x]
 		// will inherent its "true", otherwise inherent false.
-		// (2) else, the we subtract set[x] from i, and evaluate i - set[x],
-		// which to see the sum of set[1] ... set[x - 1] = i - set[x]. This
+		// (2) else, we subtract set[x] from i, and evaluate i - set[x],
+		// to see the sum of set[1] ... set[x - 1] = i - set[x]. This
 		// value has been calculated before, which is table[j - 1][i - set[x]]
 		// If i - set[x] = 0; then it is a fit because 0 is the subset of any.
 		for (int j = 1; j < set.length; j ++) {
