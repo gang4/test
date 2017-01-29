@@ -10,7 +10,7 @@ public class TestLongestCommonSequence {
 		String s2 = "abazdc";
 		LongestCommonSequence l = new LongestCommonSequence(s1, s2);
 		int [][] table = l.buildTable();
-		Util.dump(table);
+		Util.dump(table, " " + s1, " " + s2);
 		Assert.assertTrue(table[6][6] == 4);
 		System.out.println("TraceBack");
 		table = l.traceBack(table);
