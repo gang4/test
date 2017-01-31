@@ -1,4 +1,4 @@
-package dynamic.programming.practice;
+package dynamic.programming.interview;
 
 public class MaxSqureMatrix {
 	/**

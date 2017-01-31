@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import graph.greedy.Dijkstra.Node;
-import graph.greedy.Dijkstra.Node.Edge;
+import graph.greedy.DijkstraShortestDistance.Node;
+import graph.greedy.DijkstraShortestDistance.Node.Edge;
 import sort.heap.Heap;
 
-public class Primes {
+public class PrimesMST {
 	final Node [] graph;
 	final Heap<Edge> heap;
-	public Primes(Node [] graph) {
+	public PrimesMST(Node [] graph) {
 		this.graph = graph;
 		this.heap = new Heap<Edge>(Edge.class, new Comparator<Edge>() {
 			@Override

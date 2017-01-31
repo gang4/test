@@ -12,9 +12,9 @@ import org.springframework.test.annotation.Repeat;
 import graph.GraphGenerator;
 import graph.Vertex;
 import graph.bfs.MinDistance;
-import graph.greedy.Primes;
-import graph.greedy.Dijkstra.Node;
-import graph.greedy.Dijkstra.Node.Edge;
+import graph.greedy.PrimesMST;
+import graph.greedy.DijkstraShortestDistance.Node;
+import graph.greedy.DijkstraShortestDistance.Node.Edge;
 
 /**
  * *************************** NOT VERIFIED ********************
@@ -47,7 +47,7 @@ public class TestMSTPrimes1 {
 		Node [] nodes = TestDijkstra.toNode(vertice, r);
 		makeUndirectedGraph(nodes);
 		dumpNode(nodes);
-		Primes primes = new Primes(nodes);
+		PrimesMST primes = new PrimesMST(nodes);
 		List<Edge> edges = primes.mst();
 		edges.stream().forEach((edge) -> TestMSTPrimes1.total += edge.getWeight());
 		System.out.println("\nTotal Nodes: " + vertice.length + ", mst size: " + edges.size() + ", total weight: " + TestMSTPrimes1.total);

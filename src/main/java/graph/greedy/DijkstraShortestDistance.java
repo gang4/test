@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import graph.greedy.Dijkstra.Node.Edge;
+import graph.greedy.DijkstraShortestDistance.Node.Edge;
 import sort.heap.Heap;
 
-public class Dijkstra {
+public class DijkstraShortestDistance {
 	static public class Node {
 		static public class Edge {
 			public int getStartPoint() {
@@ -57,7 +57,7 @@ public class Dijkstra {
 	final private Node des;
 	final Node [] graph;
 	final Heap<Edge> heap;
-	public Dijkstra(Node start, Node des, Node[] graph) {
+	public DijkstraShortestDistance(Node start, Node des, Node[] graph) {
 		this.start = start;
 		this.des = des;
 		this.graph = graph;

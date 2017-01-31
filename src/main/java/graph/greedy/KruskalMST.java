@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import graph.greedy.Dijkstra.Node;
+import graph.greedy.DijkstraShortestDistance.Node;
 import sort.heap.Heap;
 
-public class Kruskal {
+public class KruskalMST {
 	static public class Union {
 		final int leader;
 		List<UnionNode> nodes = new ArrayList<>();
@@ -39,7 +39,7 @@ public class Kruskal {
 	
 	final UnionNode [] graph;
 	final Heap<UnionEdge> heap;
-	public Kruskal(UnionNode [] graph) {
+	public KruskalMST(UnionNode [] graph) {
 		this.graph = graph;
 		this.heap = new Heap<UnionEdge>(UnionEdge.class, new Comparator<UnionEdge>() {
 			@Override

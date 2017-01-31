@@ -11,10 +11,10 @@ import org.junit.Test;
 import graph.GraphGenerator;
 import graph.Vertex;
 import graph.bfs.MinDistance;
-import graph.greedy.Dijkstra.Node;
-import graph.greedy.Dijkstra.Node.Edge;
-import graph.greedy.Kruskal.UnionNode;
-import graph.greedy.Kruskal.UnionEdge;
+import graph.greedy.DijkstraShortestDistance.Node;
+import graph.greedy.DijkstraShortestDistance.Node.Edge;
+import graph.greedy.KruskalMST.UnionNode;
+import graph.greedy.KruskalMST.UnionEdge;
 
 public class TestMSTKrushal {
 	@Test
@@ -39,7 +39,7 @@ public class TestMSTKrushal {
 		Node [] nodes = TestDijkstra.toNode(vertice, r);
 		TestMSTPrimes1.makeUndirectedGraph(nodes);
 		TestMSTPrimes1.dumpNode(nodes);
-		Kruskal k = new Kruskal(toUnionNode(nodes));
+		KruskalMST k = new KruskalMST(toUnionNode(nodes));
 		List<UnionEdge> edges = k.mst();
 		edges.stream().forEach((edge) -> TestMSTPrimes1.total += edge.weight);
 		System.out.println("\nTotal Nodes: " + vertice.length + ", mst size: " + edges.size() + ", total weight: " + TestMSTPrimes1.total);

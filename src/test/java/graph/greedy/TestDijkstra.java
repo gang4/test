@@ -10,9 +10,9 @@ import org.junit.Test;
 
 import graph.GraphGenerator;
 import graph.Vertex;
-import graph.greedy.Dijkstra;
-import graph.greedy.Dijkstra.Node;
-import graph.greedy.Dijkstra.Node.Edge;
+import graph.greedy.DijkstraShortestDistance;
+import graph.greedy.DijkstraShortestDistance.Node;
+import graph.greedy.DijkstraShortestDistance.Node.Edge;
 
 /**
  * *************************** NOT VERIFIED ********************
@@ -32,7 +32,7 @@ public class TestDijkstra {
 		while (start == end ) {
 			end = Math.abs(r.nextInt(len));
 		}
-		Dijkstra d = new Dijkstra(nodes[start], nodes[end], nodes);
+		DijkstraShortestDistance d = new DijkstraShortestDistance(nodes[start], nodes[end], nodes);
 		List<Edge> idxs = d.shortestPath();
 		System.out.println("Path from : " + vertice[start].getId() + " to : " + vertice[end].getId());
 		for (int j = 0; j < idxs.size(); j ++) {

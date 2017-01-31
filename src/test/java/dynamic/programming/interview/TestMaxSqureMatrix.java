@@ -1,4 +1,4 @@
-package dynamic.programming.practice;
+package dynamic.programming.interview;
 
 import java.util.Date;
 import java.util.Random;
@@ -6,7 +6,7 @@ import java.util.Random;
 import org.junit.Test;
 
 import dynamic.programming.Util;
-import dynamic.programming.practice.MaxSqureMatrix;
+import dynamic.programming.interview.MaxSqureMatrix;
 import graph.GraphGenerator;
 
 public class TestMaxSqureMatrix {
