@@ -9,12 +9,12 @@ package dynamic.programming;
  *  Needed to transform one into the other
  * https://web.stanford.edu/class/cs124/lec/med.pdf
  */
-public class MinimumEditDistance {
+public class EditDistance {
 	final String s1;
 	final String s2;
 	static int costInsert = 1;
 	static int costDelete = 1;
-	public MinimumEditDistance(String s1, String s2) {
+	public EditDistance(String s1, String s2) {
 		this.s1 = " " + s1;
 		this.s2 = " " + s2;
 	}

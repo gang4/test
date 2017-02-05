@@ -1,4 +1,4 @@
-package graph.greedy;
+package dynamic.programming;
 
 /*
  * Making change: You are given n types of coins with values v1, ..., vn 

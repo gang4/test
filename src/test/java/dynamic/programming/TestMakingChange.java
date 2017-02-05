@@ -3,8 +3,6 @@ package dynamic.programming;
 import org.junit.Assert;
 import org.junit.Test;
 
-import graph.greedy.MakingChange;
-
 public class TestMakingChange {
 	@Test
 	public void test() {

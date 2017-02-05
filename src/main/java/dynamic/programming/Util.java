@@ -46,6 +46,25 @@ public class Util {
 		}
 	}
 	
+	static public void dump(int [][] table, int [] s, int [] s1) {
+		for (int j = 0; j <= table.length; j ++) {
+			System.out.print("	" + s1[j]);
+		}
+		System.out.println();
+		for (int i = table[0].length - 1; 0 <= i; i --) {
+			System.out.print("	" + s[i]);
+			for (int j = 0; j < table.length; j ++) {
+				if (table[j][i] == Integer.MAX_VALUE || table[j][i] == Integer.MIN_VALUE) {
+					System.out.print("	" + "-");
+				}
+				else {
+					System.out.print("	" + table[j][i]);
+				}
+			}
+			System.out.println();
+		}
+	}
+	
 	static public void dump(int [][] table, String s1, String s2) {
 		System.out.print("	");
 		for (int i = 1; i < table.length; i ++) {

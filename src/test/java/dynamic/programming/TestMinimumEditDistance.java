@@ -8,7 +8,7 @@ public class TestMinimumEditDistance {
 	public void test1() {
 		String s1 = "intention";
 		String s2 = "execution";
-		MinimumEditDistance d = new MinimumEditDistance(s1, s2);
+		EditDistance d = new EditDistance(s1, s2);
 		int [][] table = d.buildTable();
 		Util.dump(table);
 		Assert.assertTrue(table[s1.length() - 1][s2.length() - 1] == 8);
@@ -21,7 +21,7 @@ public class TestMinimumEditDistance {
 	public void test2() {
 		String s1 = "Zeil";
 		String s2 = "trials";
-		MinimumEditDistance d = new MinimumEditDistance(s1, s2);
+		EditDistance d = new EditDistance(s1, s2);
 		int [][] table = d.buildTable();
 		Util.dump(table);
 		Assert.assertTrue(table[s1.length() - 1][s2.length() - 1] == 6);
