@@ -13,7 +13,16 @@ public class TestLongestCommonSequence {
 		Util.dump(table, " " + s1, " " + s2);
 		Assert.assertTrue(table[6][6] == 4);
 		System.out.println("TraceBack");
-		table = l.traceBack(table);
-		Util.dump(table);
+		String lcs = l.traceBack(table);
+		System.out.println("LCS: " + lcs);
+		
+		s1 = "AGGTAB";
+		s2 = "GXTXAYB";
+		l = new LongestCommonSequence(s1, s2);
+		table = l.buildTable();
+		Util.dump(table, " " + s1, " " + s2);
+		System.out.println("TraceBack");
+		lcs = l.traceBack(table);
+		System.out.println("LCS: " + lcs);
 	}
 }

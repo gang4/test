@@ -3,6 +3,8 @@ package dynamic.programming;
 /**
  * 
  * http://www.cs.cmu.edu/afs/cs/academic/class/15451-s15/LectureNotes/lecture04.pdf
+ * 
+ * https://www.google.com/search?q=Longest+common+subsequence+problem&sa=X&rlz=1C1GCEA_enUS787US787&stick=H4sIAAAAAAAAAOOQUeLUz9U3MMyyKDYxUiupLEgtVshPU0ipzEvMzUxWKCjKTy9KzM3NzEtXSMxJzy_KLMnIjZLIyc9LTy0uUUjOz83Nz1MoLk0qLikCqjnFCDbNrKjcwATKBpt8ipELxDYyLTGpTINKmFcWxmefYuQAsS3N4OqNTDLMsmHqC7PMzXKhEqYW5cVpvxiJdOMiVpyOBACLSHpi9AAAAA&biw=1054&bih=634&tbm=isch&source=iu&ictx=1&fir=8K0T7uBaGKIauM%253A%252CA23-Q_GgFVEY3M%252C%252Fm%252F01j8s4&vet=1&usg=AI4_-kRIfEipuLSI-Q5wadA-RTPJSZmYdw&ved=2ahUKEwi1u6X3wuXhAhVM4VQKHeeNA50Q_B0wGHoECAoQCQ#imgdii=6WNBowm_2y57UM:&imgrc=8K0T7uBaGKIauM:&vet=1
  *
  */
 public class LongestCommonSequence {
@@ -32,6 +34,10 @@ public class LongestCommonSequence {
 					table[i][j] = table[i - 1][j - 1] + 1;
 				}
 				else {
+					/**
+					 * table[i - 1, j - 1] table[i - 1, j]
+					 * table[i, j - 1]     table[i,  j]
+					 */
 					table[i][j] = Math.max(table[i - 1][j], table[i][j - 1]);
 				}
 			}
@@ -53,24 +59,28 @@ public class LongestCommonSequence {
 	 * @param table
 	 * @return
 	 */
-	public int[][] traceBack(int [][] table) {
-		for (int i = table.length - 1; 0 < i;) {
-			for (int j = table[0].length - 1; 0 < j && 0 < i;) {
-				int savedi = i;
-				int savedj = j;
-				if (table[i][j] == table[i - 1][j]) {
-					i --;
-				}
-				else if (table[i][j] == table[i][j - 1]) {
-					j --;
-				}
-				else {
-					i --;
-					j --;
-				}
-				table[savedi][savedj] = -1;
+	public String traceBack(int [][] table) {
+		StringBuilder str = new StringBuilder();
+		for (int j = table[0].length - 1, i = table.length - 1; 0 < j && 0 < i;) {
+			int savedi = i;
+			int savedj = j;
+			if (table[i][j] == table[i - 1][j]) {
+				i --;
 			}
+			else if (table[i][j] == table[i][j - 1]) {
+				j --;
+			}
+			else {
+				i --;
+				j --;
+				if (table[savedi][savedj] > table[i][j]) {
+					str.insert(0, this.s1.charAt(savedi));
+					//System.out.print(this.s1.charAt(savedi));
+				}
+			}
+			//table[savedi][savedj] = -1;
 		}
-		return table;
+		
+		return str.toString();
 	}
 }

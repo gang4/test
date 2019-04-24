@@ -74,11 +74,11 @@ public class Util {
 		for (int i = 0; i < table.length; i ++) {
 			System.out.print(s2.charAt(i));
 			for (int j = 0; j < table[0].length; j ++) {
-				if (table[j][i] == Integer.MAX_VALUE) {
+				if (table[i][j] == Integer.MAX_VALUE) {
 					System.out.print("	" + "-");
 				}
 				else {
-					System.out.print("	" + table[j][i]);
+					System.out.print("	" + table[i][j]);
 				}
 			}
 			System.out.println();
